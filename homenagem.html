@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Evelina - Um santuário para o meu eterno amor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Great+Vibes&family=Caveat&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0d0d0d;
+            --text-light: #e0e0e0;
+            --accent-red: #7a101d;
+            --polaroid-bg: #f9f6f0;
+            --tape-color: rgba(220, 206, 172, 0.7);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-light);
+            font-family: 'Playfair Display', serif;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(122, 16, 29, 0.05), transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(255, 255, 255, 0.02), transparent 20%);
+        }
+
+        .decor {
+            position: fixed;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.6;
+        }
+        .star1 { top: 10%; left: 5%; font-size: 24px; color: #fff; text-shadow: 0 0 5px #fff; }
+        .star2 { top: 60%; right: 10%; font-size: 18px; color: #fff; text-shadow: 0 0 5px #fff; }
+        .petal1 { top: 20%; right: 5%; font-size: 40px; transform: rotate(45deg); filter: drop-shadow(0 0 10px var(--accent-red)); }
+        .petal2 { bottom: 10%; left: 8%; font-size: 50px; transform: rotate(-30deg); filter: drop-shadow(0 0 10px var(--accent-red)); }
+
+        header {
+            display: flex;
+            justify-content: center;
+            padding: 20px 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+        nav a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #fff;
+        }
+        .btn-destaque {
+            background-color: rgba(122, 16, 29, 0.3);
+            border: 1px solid var(--accent-red);
+            padding: 8px 20px;
+            border-radius: 20px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+            box-shadow: 0 0 15px rgba(122, 16, 29, 0.2);
+        }
+        .btn-destaque:hover {
+            background-color: rgba(122, 16, 29, 0.6);
+            box-shadow: 0 0 20px rgba(122, 16, 29, 0.5);
+        }
+
+        .hero {
+            text-align: center;
+            padding: 60px 20px 40px;
+        }
+        .hero h1 {
+            font-size: 5rem;
+            margin: 0;
+            letter-spacing: 5px;
+            color: #fff;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+        }
+        .hero h2 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3rem;
+            color: #fff;
+            margin: -10px 0 30px 0;
+            font-weight: normal;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            color: #aaa;
+            line-height: 1.6;
+        }
+
+        .content-area {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 50px;
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .love-letters {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .letter {
+            background-color: #e8e4d9;
+            width: 80%;
+            height: 120px;
+            border-radius: 2px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+            position: relative;
+        }
+        .letter:nth-child(1) { transform: rotate(-5deg); margin-left: 20px; }
+        .letter:nth-child(2) { 
+            transform: rotate(3deg); 
+            margin-left: -10px; 
+            height: 150px;
+            background-image: url('data:image/svg+xml;utf8,<svg width="24" height="24" viewBox="0 0 24 24" fill="%237a101d" xmlns="http://www.w3.org/2000/svg"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>'); 
+            background-repeat: no-repeat; 
+            background-position: 90% 85%; 
+            background-size: 20px; 
+        }
+        
+        .tape {
+            position: absolute;
+            background-color: var(--tape-color);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+            width: 80px;
+            height: 25px;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%) rotate(-2deg);
+            z-index: 2;
+        }
+
+        .gallery-board {
+            flex: 2;
+            min-width: 400px;
+            background-color: rgba(255,255,255,0.03);
+            border: 1px dashed rgba(255,255,255,0.2);
+            border-radius: 10px;
+            padding: 40px;
+            position: relative;
+        }
+        .board-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.5rem;
+            color: #fff;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 5px #000;
+        }
+
+        .polaroid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            justify-items: center;
+        }
+
+        .polaroid {
+            background-color: var(--polaroid-bg);
+            padding: 10px 10px 30px 10px;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.8);
+            position: relative;
+            transition: transform 0.3s ease, z-index 0s;
+            max-width: 200px;
+        }
+        .polaroid:hover {
+            transform: scale(1.05) rotate(0deg) !important;
+            z-index: 10;
+        }
+        
+        .p1 { transform: rotate(-6deg); }
+        .p2 { transform: rotate(4deg); }
+        .p3 { transform: rotate(-2deg); }
+        .p4 { transform: rotate(5deg); }
+
+        .polaroid img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            filter: grayscale(20%) contrast(110%);
+        }
+        .polaroid .tape {
+            top: -12px;
+            width: 60px;
+            height: 20px;
+        }
+
+        .secret-message {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background-color: rgba(30, 30, 30, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 30px;
+            padding: 12px 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            z-index: 100;
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+            width: 30px;
+            height: 30px;
+            white-space: nowrap;
+        }
+        .secret-message:hover {
+            width: 320px;
+            border-radius: 15px;
+            background-color: rgba(122, 16, 29, 0.2);
+            border-color: rgba(122, 16, 29, 0.5);
+        }
+        .secret-icon {
+            font-size: 24px;
+            min-width: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .secret-text {
+            color: #fff;
+            font-family: 'Caveat', cursive;
+            font-size: 1.6rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .secret-message:hover .secret-text {
+            opacity: 1;
+            transition-delay: 0.2s;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3rem; }
+            .hero h2 { font-size: 2rem; }
+            .content-area { flex-direction: column; }
+            .secret-message { 
+                bottom: 15px; 
+                left: 15px; 
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="decor star1">✨</div>
+    <div class="decor star2">✧</div>
+    <div class="decor petal1">🥀</div>
+    <div class="decor petal2">🌹</div>
+
+    <header>
+        <nav>
+            <a href="#">Início</a>
+            <a href="#">Nossa História</a>
+            <a href="#">Galeria</a>
+            <a href="#" class="btn-destaque">Para Você ❤️</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>PARA EVELINA</h1>
+        <h2>Um santuário para o meu eterno amor</h2>
+        <p>Na escuridão do mundo, você é a minha única luz.<br>Este espaço é seu, assim como o meu coração.</p>
+    </section>
+
+    <main class="content-area">
+        
+        <div class="love-letters">
+            <div class="letter">
+                <div class="tape"></div>
+            </div>
+            <div class="letter" style="margin-top: 40px;">
+                <div class="tape" style="transform: translateX(-50%) rotate(4deg);"></div>
+            </div>
+        </div>
+
+        <div class="gallery-board">
+            <h3 class="board-title">Fragmentos de Nós</h3>
+            
+            <div class="polaroid-container">
+                <div class="polaroid p1">
+                    <div class="tape"></div>
+                    <img src="foto1.jpg" alt="Evelina 1" onerror="this.src='https://via.placeholder.com/200x200/222/555?text=Foto+1'">
+                </div>
+
+                <div class="polaroid p2" style="margin-top: 20px;">
+                    <div class="tape" style="transform: translateX(-50%) rotate(-3deg);"></div>
+                    <img src="foto2.jpg" alt="Evelina 2" onerror="this.src='https://via.placeholder.com/200x200/222/555?text=Foto+2'">
+                </div>
+
+                <div class="polaroid p3">
+                    <div class="tape"></div>
+                    <img src="foto3.jpg" alt="Evelina 3" onerror="this.src='https://via.placeholder.com/200x200/222/555?text=Foto+3'">
+                </div>
+
+                <div class="polaroid p4" style="margin-top: 30px;">
+                    <div class="tape" style="transform: translateX(-50%) rotate(5deg);"></div>
+                    <img src="foto4.jpg" alt="Evelina 4" onerror="this.src='https://via.placeholder.com/200x200/222/555?text=Foto+4'">
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="secret-message">
+        <div class="secret-icon">💌</div>
+        <div class="secret-text">Meu coração é eternamente seu, Эвелина.</div>
+    </div>
+
+</body>
+</html>
